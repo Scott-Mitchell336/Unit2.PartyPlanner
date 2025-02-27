@@ -105,11 +105,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   showFormButton.addEventListener("click", () => {
     toggleForm.style.display = "block";
+    showFormButton.disabled = true;
   });
 
   cancelFormButton.addEventListener("click", () => {
     eventForm.reset(); // Clear the form fields
     toggleForm.style.display = "none"; // Hide the form
+    showFormButton.disabled = false;
   });
 
   eventForm.addEventListener("submit", (event) => {
@@ -158,9 +160,11 @@ document.addEventListener("DOMContentLoaded", () => {
         getEvents().then(() => {
           renderEvents();
         });
+        showFormButton.disabled = false;
       })
       .catch((error) => {
         console.error("Error:", error);
+        showFormButton.disabled = false;
       });
   });
 

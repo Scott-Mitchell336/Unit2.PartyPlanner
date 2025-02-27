@@ -9,9 +9,10 @@
   </head>
   <body>
     <h1 id="page-title">Party Planner</h1>
-    <button id="show-form-button">Add Event</button>
+    <button id="show-form-button">Add Party</button>
     <div id="toggle-form" style="display: none">
       <form action="submit" id="event-form">
+        <h2>Add Party</h2>
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" required />
         <label for="date">Date:</label>
@@ -22,7 +23,7 @@
         <input type="text" id="location" name="location" required />
         <label for="description">Description:</label>
         <textarea id="description" name="description" required></textarea>
-        <button type="submit">Add Event</button>
+        <button type="submit">Add Party</button>
         <button type="button" id="cancel-form">Cancel</button>
       </form>
     </div>
@@ -30,7 +31,7 @@
       <thead>
         <tr>
           <th>Name</th>
-          <th>Date/Time</th>
+          <th>Date and Time</th>
           <th>Location</th>
           <th>Description</th>
           <th></th>
