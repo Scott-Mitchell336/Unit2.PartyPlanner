@@ -1,0 +1,46 @@
+#page-title {
+  display: block;
+  text-align: center;
+}
+
+#party-table {
+  display: table;
+  margin: 0 auto;
+  width: 100%;
+  border: 3px solid black;
+  table-layout: auto;
+  border-collapse: collapse;
+}
+
+tr {
+  width: 100%; /* Adjust the percentage as needed */
+}
+
+th {
+  /* width: 20%; */
+  padding: 4px;
+  text-align: left;
+  vertical-align: top;
+  margin: 0;
+}
+
+thead {
+  width: 100%;
+}
+
+tbody {
+  width: 100%;
+  border-top: 3px solid black;
+}
+
+td {
+  padding: 4px;
+  text-align: left;
+  vertical-align: top;
+  border: 3px solid black;
+  margin: 0;
+}
+
+#delete-button-cell {
+  width: 60px;
+}
