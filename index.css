@@ -13,7 +13,7 @@
 }
 
 tr {
-  width: 100%; /* Adjust the percentage as needed */
+  width: 100%;
 }
 
 th {
@@ -43,4 +43,39 @@ td {
 
 #delete-button-cell {
   width: 60px;
+}
+
+#show-form-button {
+  display: block;
+  float: right;
+  margin-bottom: 20px;
+  padding: 10px;
+  width: 100px;
+}
+
+#toggle-form {
+  border: 3px solid black;
+  clear: both; /* Ensure the form appears below the button */
+  width: 80%; /* Ensure the form takes up the full width */
+  margin: 20px auto;
+  padding: 20px;
+}
+
+#toggle-form label,
+#toggle-form input,
+#toggle-form textarea {
+  display: block; /* Ensure each element is on its own line */
+  margin-bottom: 10px; /* Add margin to space out the elements */
+}
+
+#toggle-form textarea {
+  width: 100%; /* Ensure the textarea takes up the full width */
+  height: 100px; /* Set a height for the textarea */
+  resize: none;
+}
+
+#tooggle-form input[type="submit"] {
+  display: block; /* Ensure the submit button is on its own line */
+  float: right;
+  margin-top: 10px; /* Add margin to space out the button */
 }

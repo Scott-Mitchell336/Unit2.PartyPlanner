@@ -7,11 +7,12 @@ const state = {
 
 async function getEvents() {
   try {
+    console.log("getEvents() - API_URL = ", API_URL);
     const response = await fetch(API_URL);
     const jsonObj = await response.json();
 
     state.events = jsonObj.data;
-    console.log("state.events = ", state.events);
+    console.log("getEvents() - state.events = ", state.events);
   } catch (error) {
     console.error(error);
   }
@@ -73,11 +74,19 @@ function createEventRow(event) {
   return eventRow;
 }
 
+function removeChildren(parent) {
+  while (parent.firstChild) {
+    parent.removeChild(parent.firstChild);
+  }
+}
+
 function renderEvents() {
   const eventsContainer = document.getElementById("party-table-body");
   console.log("eventsContainer = ", eventsContainer);
 
   console.log("state.events = ", state.events);
+
+  removeChildren(eventsContainer);
 
   state.events.forEach((event) => {
     console.log("event = ", event);
@@ -89,6 +98,72 @@ function renderEvents() {
 //getEvents();
 
 document.addEventListener("DOMContentLoaded", () => {
+  const showFormButton = document.getElementById("show-form-button");
+  const toggleForm = document.getElementById("toggle-form");
+  const eventForm = document.getElementById("event-form");
+  const cancelFormButton = document.getElementById("cancel-form");
+
+  showFormButton.addEventListener("click", () => {
+    toggleForm.style.display = "block";
+  });
+
+  cancelFormButton.addEventListener("click", () => {
+    eventForm.reset(); // Clear the form fields
+    toggleForm.style.display = "none"; // Hide the form
+  });
+
+  eventForm.addEventListener("submit", (event) => {
+    event.preventDefault(); // Prevent the default form submission behavior
+
+    // Capture the form data
+    const formData = new FormData(eventForm);
+    const name = formData.get("name");
+    const date = formData.get("date");
+    const time = formData.get("time");
+    const location = formData.get("location");
+    const description = formData.get("description");
+
+    // Combine date and time into a single string
+    const dateTimeString = `${date}T${time}`;
+    // Create a Date object from the combined string
+    const dateTime = new Date(dateTimeString);
+    // Convert the Date object to an ISO string
+    const dateTimeISO = dateTime.toISOString();
+
+    const eventData = {
+      name: name,
+      date: dateTimeISO,
+      location: location,
+      description: description,
+    };
+
+    console.log("Form submitted:", eventData);
+
+    // Send the eventData to the server using fetch
+    fetch(API_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(eventData),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Success:", data);
+        // hide the form after submission
+        toggleForm.style.display = "none";
+        // Clear the form fields
+        eventForm.reset();
+        // re-fetch and render events
+        getEvents().then(() => {
+          renderEvents();
+        });
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  });
+
   getEvents().then(() => {
     renderEvents();
   });
