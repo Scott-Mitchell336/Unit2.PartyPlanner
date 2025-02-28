@@ -59,6 +59,7 @@ td {
   width: 80%; /* Ensure the form takes up the full width */
   margin: 20px auto;
   padding: 20px;
+  display: none; /* Hide the form by default */
 }
 
 #toggle-form label,
@@ -74,8 +75,26 @@ td {
   resize: none;
 }
 
-#tooggle-form input[type="submit"] {
-  display: block; /* Ensure the submit button is on its own line */
-  float: right;
-  margin-top: 10px; /* Add margin to space out the button */
+#toggle-form .form-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px; /* Reduce margin to space out the elements */
+}
+
+#toggle-form .form-group {
+  width: 48%; /* Adjust the width to fit two elements on the same line */
+}
+
+#toggle-form .form-buttons {
+  display: flex;
+  justify-content: flex-start; /* Align buttons to the left */
+}
+
+#toggle-form .form-buttons button {
+  margin-right: 10px; /* Add margin between the buttons */
+}
+
+#name,
+#location {
+  width: 100%; /* Make the input fields take up the full width of their container */
 }

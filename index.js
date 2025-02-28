@@ -95,8 +95,6 @@ function renderEvents() {
   });
 }
 
-//getEvents();
-
 document.addEventListener("DOMContentLoaded", () => {
   const showFormButton = document.getElementById("show-form-button");
   const toggleForm = document.getElementById("toggle-form");
@@ -106,6 +104,16 @@ document.addEventListener("DOMContentLoaded", () => {
   showFormButton.addEventListener("click", () => {
     toggleForm.style.display = "block";
     showFormButton.disabled = true;
+
+    const dateInput = document.getElementById("date");
+    const timeInput = document.getElementById("time");
+
+    const now = new Date();
+    const currentDate = now.toISOString().split("T")[0];
+    const currentTime = now.toTimeString().split(" ")[0].slice(0, 5);
+
+    dateInput.value = currentDate;
+    timeInput.value = currentTime;
   });
 
   cancelFormButton.addEventListener("click", () => {
@@ -163,6 +171,7 @@ document.addEventListener("DOMContentLoaded", () => {
         showFormButton.disabled = false;
       })
       .catch((error) => {
+        alert("Error:", error);
         console.error("Error:", error);
         showFormButton.disabled = false;
       });
