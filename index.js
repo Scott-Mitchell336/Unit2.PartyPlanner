@@ -74,6 +74,8 @@ function createEventRow(event) {
   return eventRow;
 }
 
+// we need to removethe existing rows and then re-render the events,
+// so we dont get duplicates
 function removeChildren(parent) {
   while (parent.firstChild) {
     parent.removeChild(parent.firstChild);
@@ -86,6 +88,7 @@ function renderEvents() {
 
   console.log("state.events = ", state.events);
 
+  // remove the existing rows and replace them
   removeChildren(eventsContainer);
 
   state.events.forEach((event) => {
