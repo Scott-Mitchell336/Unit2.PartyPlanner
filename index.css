@@ -1,3 +1,11 @@
+/* 
+//
+// index.css
+// Created by Scott Mitchell on 02/25/2025
+// Block 21 - Party Planner
+// 
+*/
+
 #page-title {
   display: block;
   text-align: center;
@@ -55,46 +63,46 @@ td {
 
 #toggle-form {
   border: 3px solid black;
-  clear: both; /* Ensure the form appears below the button */
-  width: 80%; /* Ensure the form takes up the full width */
+  clear: both;
+  width: 80%;
   margin: 20px auto;
   padding: 20px;
-  display: none; /* Hide the form by default */
+  display: none;
 }
 
 #toggle-form label,
 #toggle-form input,
 #toggle-form textarea {
-  display: block; /* Ensure each element is on its own line */
-  margin-bottom: 10px; /* Add margin to space out the elements */
+  display: block;
+  margin-bottom: 10px;
 }
 
 #toggle-form textarea {
-  width: 100%; /* Ensure the textarea takes up the full width */
-  height: 100px; /* Set a height for the textarea */
+  width: 100%;
+  height: 100px;
   resize: none;
 }
 
 #toggle-form .form-row {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 10px; /* Reduce margin to space out the elements */
+  margin-bottom: 10px;
 }
 
 #toggle-form .form-group {
-  width: 48%; /* Adjust the width to fit two elements on the same line */
+  width: 48%;
 }
 
 #toggle-form .form-buttons {
   display: flex;
-  justify-content: flex-start; /* Align buttons to the left */
+  justify-content: flex-start;
 }
 
 #toggle-form .form-buttons button {
-  margin-right: 10px; /* Add margin between the buttons */
+  margin-right: 10px;
 }
 
 #name,
 #location {
-  width: 100%; /* Make the input fields take up the full width of their container */
+  width: 100%;
 }

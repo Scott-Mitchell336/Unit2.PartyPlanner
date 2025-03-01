@@ -1,3 +1,9 @@
+//
+// index.js
+// Created by Scott Mitchell on 02/25/2025
+// Block 21 - Party Planner
+//
+
 const COHORT = "2412-FTB-MT-WEB-PT";
 const API_URL = `https://fsa-crud-2aa9294fe819.herokuapp.com/api/${COHORT}/events`;
 
@@ -56,6 +62,7 @@ function createEventRow(event) {
 
   deleteButton.textContent = "Delete";
   deleteButton.addEventListener("click", async () => {
+    // deletethe part from the event schedule
     try {
       const response = await fetch(`${API_URL}/${event.id}`, {
         method: "DELETE",
